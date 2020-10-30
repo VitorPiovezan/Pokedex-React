@@ -14,6 +14,7 @@ export const Header = styled.div`
     top: 0;
     background-color: #4484CE;
     height: 80px;
+    width: 100%;
 `
 
 export const Menu = styled.div`
@@ -39,6 +40,7 @@ export const Search = styled.div`
     flex-direction: row;
     align-items: center;
     border-bottom: 1px solid #909090;
+    justify-content: center;
 `
 
 export const SearchTitle = styled.p`
@@ -76,7 +78,7 @@ export const DivButtonSearch = styled.div`
     display: flex;
     flex-direction: row;
     padding: 0px 15px;
-    justify-content: space-between
+    justify-content: space-between;
 `
 
 export const ButtonDropdown = styled.input`
@@ -85,4 +87,12 @@ export const ButtonDropdown = styled.input`
     background: #707070; 
     border:1px solid #000000;
     width: 150px;
+`
+export const Pokemons = styled.div`
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 20px;
 `

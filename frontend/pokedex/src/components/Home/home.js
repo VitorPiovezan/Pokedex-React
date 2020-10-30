@@ -1,5 +1,7 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import api from '../../api/api'
 import pokedex from '../../assets/images/pokedex.png'
+import ListItems from './pokemon'
 
 import { 
     Container, 
@@ -14,11 +16,38 @@ import {
     SearchNameInput,
     Input,
     DivButtonSearch,
-    ButtonDropdown
+    ButtonDropdown,
+    Pokemons
 } from './styles'
 
 
+
 export default function Home() {
+
+    const [pokemon, setPokemon] = useState([])
+    const [att, setAtt] = useState(0)
+
+     useEffect(() => {
+         api.get('?offset=0&limit=20')
+         .then(res => {
+             console.log(res.data.results);
+             setPokemon(res.data.results);
+         })
+     }, [att]);
+
+     let listaDeItens = null
+
+     if (pokemon !== null) {
+        listaDeItens = pokemon.map(item => {
+            return <ListItems
+                key={item.name}
+                name={item.name}
+                url={item.url}
+            />
+        })
+    }
+
+
   return (
     
     <Container>
@@ -44,6 +73,9 @@ export default function Home() {
                     </DivButtonSearch>
                 </SearchAdvanced>
             </Search>
+            <Pokemons>
+            {listaDeItens}
+            </Pokemons>
         </Main>
 
     </Container>
