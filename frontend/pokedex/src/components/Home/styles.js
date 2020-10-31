@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+    width:100%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
 `;
 
 export const Main = styled.main`
@@ -10,7 +14,7 @@ export const Main = styled.main`
 
 //Header
 
-export const Header = styled.div`
+export const Header = styled.header`
     top: 0;
     background-color: #4484CE;
     height: 80px;

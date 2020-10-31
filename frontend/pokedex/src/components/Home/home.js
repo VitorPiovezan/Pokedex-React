@@ -28,7 +28,8 @@ export default function Home() {
     const [att, setAtt] = useState(0)
 
      useEffect(() => {
-         api.get('?offset=0&limit=20')
+         const way = '?offset='+att+'&limit=20';
+         api.get(way)
          .then(res => {
              console.log(res.data.results);
              setPokemon(res.data.results);
@@ -47,6 +48,25 @@ export default function Home() {
         })
     }
 
+    function Update(){
+        setAtt(att + 20);
+    }
+
+    function UnUpdate(){
+        setAtt(att - 20);
+    }
+
+    function Avancar(){
+        if(att === 0){
+            return <div><button onClick={Update}><p>Avançar</p></button></div>
+        }else{
+            return  <div>
+                        <button onClick={UnUpdate}><p>Voltar</p></button>
+                        <button onClick={Update}><p>Avançar</p></button>
+                    </div> 
+        }
+
+    } 
 
   return (
     
@@ -58,6 +78,7 @@ export default function Home() {
         </Header>
 
         <Main>
+            
             <Search>
                 <SearchName>
                     <SearchTitle color="#4484CE">Search by Name</SearchTitle>
@@ -76,6 +97,7 @@ export default function Home() {
             <Pokemons>
             {listaDeItens}
             </Pokemons>
+            <Avancar/>
         </Main>
 
     </Container>
