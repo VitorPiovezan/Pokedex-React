@@ -9,8 +9,11 @@ import {
     Title,
     PokemonView,
     ImagePokemon,
-    Link
+    Link,
+    ViewTypesPokemon
 } from './styles_pokemon';
+
+import ListTypes from './types';
 
 const ListItems = (props) => {
 
@@ -18,29 +21,46 @@ const ListItems = (props) => {
     const [image, setImage] = useState('');
     const [att, setAtt] = useState(0);
     const [nameCorrect, setNameCorrect] = useState('');
-    const [type, setType] = useState([])
+    const [type, setType] = useState([]);
 
     useEffect(() => {
-        api.get(props.name)
-            .then(res => {
-                setId(res.data.id);
-                setImage(res.data.sprites.front_default);
-                res.data.types.map(item => {setType([...type, {type: item.type.name}])}) 
-                console.log(type);         
-                setNameCorrect(props.name.substring(0,1).toUpperCase().concat(props.name.substring(1)));
-            });
-    }, [att]);
+        api
+          .get(props.name)
+          .then(({ data }) => {
+            setId(data.id);
+            setImage(data.sprites.front_default);
+            setType(data.types);
+            setNameCorrect(
+              props.name.substring(0, 1).toUpperCase().concat(props.name.substring(1))
+            );
+          })
+          .catch((err) => console.error(err));
+    
+      }, []);
+
+    let listaDeTipos = null
+
+     if (type !== null) {
+        listaDeTipos = type.map(item => {
+            return <ListTypes
+                key={item.type.name}
+                name={item.type.name}
+            />
+        })
+    }
+    
 
     return (
         <Pokemon>
                 
-            <Link href="">
+            <Link>
                 <TitleDiv>
                     <Id>Nº{id}</Id>
                     <Title>{nameCorrect}</Title>
                 </TitleDiv>
                 <PokemonView>
                     <ImagePokemon src={image}/>
+                    <ViewTypesPokemon>{listaDeTipos}</ViewTypesPokemon>
                 </PokemonView> 
             </Link>
         </Pokemon>

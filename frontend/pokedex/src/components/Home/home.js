@@ -19,6 +19,7 @@ import {
     ButtonDropdown,
     Pokemons
 } from './styles'
+import Individual from '../Pokemon/individual'
 
 
 
@@ -31,7 +32,6 @@ export default function Home() {
          const way = '?offset='+att+'&limit=20';
          api.get(way)
          .then(res => {
-             console.log(res.data.results);
              setPokemon(res.data.results);
          })
      }, [att]);
@@ -99,7 +99,6 @@ export default function Home() {
             </Pokemons>
             <Avancar/>
         </Main>
-
     </Container>
 
     );

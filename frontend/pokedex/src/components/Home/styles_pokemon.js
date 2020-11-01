@@ -55,3 +55,28 @@ export const ImagePokemon = styled.img`
 export const Link = styled.a`
     text-decoration: none;
 `
+
+
+//Tipos de pokemon
+
+export const ViewType = styled.div`
+    width: 60px;
+    height: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin-left: 5px;
+    background-color: ${props => props.color};
+`
+
+export const TextType = styled.p`
+    padding: 3px;
+    font-size: 10pt;
+    color: ${props => props.color};
+`
+
+export const ViewTypesPokemon = styled.div`
+    display: flex;
+    padding: 5px;
+    flex-direction: row;
+    margin: -35px 0px 0px -2px;
+`

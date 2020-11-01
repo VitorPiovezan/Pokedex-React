@@ -27,6 +27,7 @@ export default function Individual() {
         <Main>
             
             <Search>
+                <p>funfo</p>
             </Search>
         </Main>
 
