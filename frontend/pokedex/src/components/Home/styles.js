@@ -85,12 +85,15 @@ export const DivButtonSearch = styled.div`
     justify-content: space-between;
 `
 
-export const ButtonDropdown = styled.input`
+export const ButtonDropdown = styled.button`
     border-radius:4px;
     padding: 12px;
     background: #707070; 
     border:1px solid #000000;
     width: 150px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 10pt
 `
 export const Pokemons = styled.div`
     position: relative;
@@ -99,4 +102,46 @@ export const Pokemons = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     padding: 20px;
+`
+export const ViewAvancarHome = styled.div`
+    margin-right: 40px;
+    float: right;
+    margin-bottom: 50px;
+`
+
+export const ButtonAvancarHome = styled.button`
+    background-color: #4484ce;
+    color: #fff;
+    border-radius: 20px 20px 20px 0px;
+    border: solid 0px;
+    font-size: 15pt;
+    padding: 10px;
+
+`
+
+export const ButtonBackHome = styled.button`
+    background-color: #4484ce;
+    float: left;
+    color: #fff;
+    border-radius: 20px 20px 20px 0px;
+    border: solid 0px;
+    font-size: 15pt;
+    padding: 10px;
+
+`
+
+export const ViewAvancarPos = styled.div`
+    width: 92%;
+    margin: auto;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+`
+
+export const DivPokebola = styled.div`
+    margin-top: 15px;
+`
+
+export const PokebolaAbertaImg = styled.img`
+    margin-top: -10px;
 `

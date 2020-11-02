@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import api from '../../api/api';
 import Individual from '../Pokemon/individual'
+import defaultPhoto from '../../assets/images/silueta_pikachu.png'
 
 import {
     Pokemon,
@@ -18,7 +19,7 @@ import ListTypes from './types';
 const ListItems = (props) => {
 
     const [id, setId] = useState('');
-    const [image, setImage] = useState('');
+    const [image, setImage] = useState(null);
     const [att, setAtt] = useState(0);
     const [nameCorrect, setNameCorrect] = useState('');
     const [type, setType] = useState([]);
@@ -48,18 +49,26 @@ const ListItems = (props) => {
             />
         })
     }
+
+    function ImagePokemonDefault(){
+        if (image === null || image === '' || image === 'null'){
+            return <ImagePokemon src={defaultPhoto} />
+        }else {
+            return <ImagePokemon src={image}/>
+        }
+    }
     
 
     return (
         <Pokemon>
                 
-            <Link>
+            <Link href="/pokemon">
                 <TitleDiv>
                     <Id>Nº{id}</Id>
                     <Title>{nameCorrect}</Title>
                 </TitleDiv>
                 <PokemonView>
-                    <ImagePokemon src={image}/>
+                    <ImagePokemonDefault/>
                     <ViewTypesPokemon>{listaDeTipos}</ViewTypesPokemon>
                 </PokemonView> 
             </Link>

@@ -1,7 +1,9 @@
-import React, {useEffect, useState} from 'react'
-import api from '../../api/api'
-import pokedex from '../../assets/images/pokedex.png'
-import ListItems from './pokemon'
+import React, {useEffect, useState} from 'react';
+import api from '../../api/api';
+import pokedex from '../../assets/images/pokedex.png';
+import pokebolaAberta from '../../assets/images/pokebola_2.png';
+import pokebolaFechada from '../../assets/images/pokebola_1.png';
+import ListItems from './pokemon';
 
 import { 
     Container, 
@@ -17,7 +19,13 @@ import {
     Input,
     DivButtonSearch,
     ButtonDropdown,
-    Pokemons
+    Pokemons,
+    ViewAvancarHome,
+    ButtonAvancarHome,
+    ButtonBackHome,
+    ViewAvancarPos,
+    DivPokebola,
+    PokebolaAbertaImg
 } from './styles'
 import Individual from '../Pokemon/individual'
 
@@ -25,8 +33,9 @@ import Individual from '../Pokemon/individual'
 
 export default function Home() {
 
-    const [pokemon, setPokemon] = useState([])
-    const [att, setAtt] = useState(0)
+    const [pokemon, setPokemon] = useState([]);
+    const [att, setAtt] = useState(0);
+    const [pokebola, setPokebola] = useState(0);
 
      useEffect(() => {
          const way = '?offset='+att+'&limit=20';
@@ -49,24 +58,42 @@ export default function Home() {
     }
 
     function Update(){
+        window.scrollTo(0, 0);
         setAtt(att + 20);
     }
 
     function UnUpdate(){
+        window.scrollTo(0, 0);
         setAtt(att - 20);
     }
 
     function Avancar(){
         if(att === 0){
-            return <div><button onClick={Update}><p>Avançar</p></button></div>
+            return <ViewAvancarHome><ButtonAvancarHome onClick={Update}>Avançar</ButtonAvancarHome></ViewAvancarHome>
         }else{
-            return  <div>
-                        <button onClick={UnUpdate}><p>Voltar</p></button>
-                        <button onClick={Update}><p>Avançar</p></button>
-                    </div> 
+            return  <ViewAvancarPos>
+                        <ButtonBackHome onClick={UnUpdate}>Voltar</ButtonBackHome>
+                        <ButtonAvancarHome onClick={Update}>Avançar</ButtonAvancarHome>
+                    </ViewAvancarPos> 
         }
 
     } 
+
+    function AbrirPokebola(){
+        if (pokebola === 0){
+            setPokebola(1)
+        } else{
+            setPokebola(0)
+        }
+    }
+
+    function Pokebola(){
+        if (pokebola === 0){
+            return <img src={pokebolaFechada} width="50px"/>
+        } else{
+            return <PokebolaAbertaImg src={pokebolaAberta} width="50px"/>
+        }
+    }
 
   return (
     
@@ -74,6 +101,7 @@ export default function Home() {
         <Header>
             <Menu>
                 <Imagem src={pokedex}/>
+                <DivPokebola onClick={AbrirPokebola}><Pokebola/></DivPokebola>
             </Menu>
         </Header>
 
@@ -88,9 +116,9 @@ export default function Home() {
                 <SearchAdvanced>
                     <SearchTitle color="#707070">Advanced Search</SearchTitle>
                     <DivButtonSearch>
-                        <ButtonDropdown type="button" name="button" placeholder="Todos Tipos"/>
-                        <ButtonDropdown type="button" name="button" placeholder="Todos Tipos"/>
-                        <ButtonDropdown type="button" name="button" placeholder="Todos Tipos"/>
+                        <ButtonDropdown>All Species</ButtonDropdown>
+                        <ButtonDropdown>All Regions</ButtonDropdown>
+                        <ButtonDropdown>All Colors</ButtonDropdown>
                     </DivButtonSearch>
                 </SearchAdvanced>
             </Search>
