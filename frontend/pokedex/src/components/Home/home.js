@@ -25,9 +25,9 @@ import {
     ButtonBackHome,
     ViewAvancarPos,
     DivPokebola,
-    PokebolaAbertaImg
+    PokebolaAbertaImg,
+    PokebolaFechadaImg
 } from './styles'
-import Individual from '../Pokemon/individual'
 
 
 
@@ -89,7 +89,7 @@ export default function Home() {
 
     function Pokebola(){
         if (pokebola === 0){
-            return <img src={pokebolaFechada} width="50px"/>
+            return <PokebolaFechadaImg src={pokebolaFechada} width="50px"/>
         } else{
             return <PokebolaAbertaImg src={pokebolaAberta} width="50px"/>
         }

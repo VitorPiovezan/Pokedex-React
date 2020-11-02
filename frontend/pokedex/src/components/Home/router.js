@@ -3,7 +3,8 @@ import Home from './home'
 import Individual from '../Pokemon/individual'
 import {
   BrowserRouter as Router,
-  Route
+  Route,
+  Switch
 } from 'react-router-dom'
 
 export default function Routes(){
@@ -12,7 +13,7 @@ export default function Routes(){
     return (
         <Router>
             <Route exact path='/' component={Home}/>
-            <Route exact path='/pokemon' component={Individual}/>
+            <Switch><Route exact path='/pokemon/:id' component={Individual}/></Switch>
         </Router>
     )
 

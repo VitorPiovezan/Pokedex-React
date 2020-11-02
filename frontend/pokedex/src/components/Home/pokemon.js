@@ -62,7 +62,7 @@ const ListItems = (props) => {
     return (
         <Pokemon>
                 
-            <Link href="/pokemon">
+            <Link href={"/pokemon/"+props.name}>
                 <TitleDiv>
                     <Id>Nº{id}</Id>
                     <Title>{nameCorrect}</Title>

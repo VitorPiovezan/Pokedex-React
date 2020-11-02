@@ -93,7 +93,7 @@ export const ButtonDropdown = styled.button`
     width: 150px;
     color: #fff;
     font-weight: bold;
-    font-size: 10pt
+    font-size: 10pt;
 `
 export const Pokemons = styled.div`
     position: relative;
@@ -143,5 +143,13 @@ export const DivPokebola = styled.div`
 `
 
 export const PokebolaAbertaImg = styled.img`
+    position: absolute;
     margin-top: -10px;
+    margin-left: -80px;
+`
+
+
+export const PokebolaFechadaImg = styled.img`
+    position: absolute;
+    margin-left: -80px;
 `

@@ -7,28 +7,39 @@ import {
     Header, 
     Menu, 
     Imagem, 
-    Search, 
     Main, 
 } from '../Home/styles'
 
-
+import {
+    useParams
+} from 'react-router-dom'
 
 export default function Individual() {
 
-  return (
+    let { id } = useParams();
+
+    const [imgPokemon, setImgPokemon] = useState('');
+
+    useEffect(() => {
+        api.get(id)
+        .then(res =>{
+            setImgPokemon(res.data.sprites.front_default)
+        });
+
+    }, [])
+
+
+return (
     
     <Container>
         <Header>
-            <Menu>
+            <a href="/"><Menu>
                 <Imagem src={pokedex}/>
-            </Menu>
+            </Menu></a>
         </Header>
 
         <Main>
-            
-            <Search>
-                <p>funfo</p>
-            </Search>
+            <img src={imgPokemon}/>
         </Main>
 
     </Container>
