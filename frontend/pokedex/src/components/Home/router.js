@@ -12,8 +12,10 @@ export default function Routes(){
 
     return (
         <Router>
-            <Route exact path='/' component={Home}/>
-            <Switch><Route exact path='/pokemon/:id' component={Individual}/></Switch>
+            <Switch>
+                <Route exact path='/' component={Home}/>
+                <Route exact path='/pokemon/:id' component={Individual}/>
+            </Switch>
         </Router>
     )
 

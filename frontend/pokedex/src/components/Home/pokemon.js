@@ -28,7 +28,13 @@ const ListItems = (props) => {
         api
           .get(props.name)
           .then(({ data }) => {
-            setId(data.id);
+            if(data.id <= 9){
+                setId('00'+data.id)
+            } else if(data.id > 9 && data.id <= 99){
+                setId('0'+data.id)
+            } else {
+                setId(data.id)
+            }
             setImage(data.sprites.front_default);
             setType(data.types);
             setNameCorrect(

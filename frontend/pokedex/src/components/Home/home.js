@@ -43,7 +43,7 @@ export default function Home() {
          .then(res => {
              setPokemon(res.data.results);
          })
-     }, [att]);
+     }, []);
 
      let listaDeItens = null
 
