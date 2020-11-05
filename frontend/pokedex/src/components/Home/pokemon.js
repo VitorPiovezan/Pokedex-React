@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import api from '../../api/api';
-import Individual from '../Pokemon/individual'
 import defaultPhoto from '../../assets/images/silueta_pikachu.png'
 
 import {
@@ -20,7 +19,6 @@ const ListItems = (props) => {
 
     const [id, setId] = useState('');
     const [image, setImage] = useState(null);
-    const [att, setAtt] = useState(0);
     const [nameCorrect, setNameCorrect] = useState('');
     const [type, setType] = useState([]);
 

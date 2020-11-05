@@ -60,14 +60,14 @@ export const DivColunaUm = styled.div`
 `;
 
 export const TitleColunaUm = styled.p`
-    font-size: 14pt;
+    font-size: 12pt;
     font-weight: bold;
     color: #4484CE;
     margin-bottom: 10px;
 `;
 
 export const ColunaUm = styled.p`
-    font-size: 16pt;
+    font-size: 14pt;
     color: #707070;
 `;
 
@@ -83,20 +83,20 @@ export const DivColunaDois = styled.div`
 `;
 
 export const TitleColunaDois = styled.p`
-    font-size: 14pt;
+    font-size: 12pt;
     font-weight: bold;
     color: #4484CE;
     margin-bottom: 10px;
 `;
 
 export const ColunaDois = styled.p`
-    font-size: 16pt;
+    font-size: 14pt;
     color: #707070;
 `;
 
 export const Linha = styled.div`
     margin-top: 10px;
-    margin-bottom: -30px;
+    margin-bottom: -50px;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -105,5 +105,45 @@ export const Linha = styled.div`
 
 
 
+// Abilities
+
+export const ShortEffectText = styled.p`
+    font-size: 10pt;
+    padding: 10px;
+`
+
+export const AbilityText = styled.p`
+    font-size: 12pt;
+    font-weight: bold;
+`
+export const AbilityDiv = styled.div`
+    margin-top: 20px;
+    color: #707070;
+`
+
+
+// Evolutions
+
+export const PokemonEvolutions = styled.div`
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+`
+export const DivEvolutions = styled.div`
+    background-color: #454545;
+    width: 725px;
+    height: 300px;
+    border-radius: 15px;
+`
+export const TitleEvolutions = styled.p`
+    color: #ffce31;
+    font-size: 16pt;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+`
 
 

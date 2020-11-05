@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import api from '../../api/api'
 import pokedex from '../../assets/images/pokedex.png'
 import ListTypes from '../Home/types'
+import ListAbilities from '../Pokemon/abilities'
 
 import { 
     Container, 
@@ -26,7 +27,11 @@ import {
     DivColunaDois,
     TitleColunaDois,
     ColunaDois,
-    Linha
+    Linha,
+    AbilityDiv,
+    PokemonEvolutions,
+    DivEvolutions,
+    TitleEvolutions
 } from './styles'
 
 import {
@@ -44,6 +49,7 @@ export default function Individual() {
     const [weight, setWeight] = useState('');
     const [height, setHeight] = useState('');
     const [type, setType] = useState([]);
+    const [abilities, setAbilities] = useState([]);
 
 
     useEffect(() => {
@@ -53,6 +59,7 @@ export default function Individual() {
             setWeight(res.data.weight / 10 + ' kg');
             setHeight(res.data.height / 10 + ' m');
             setType(res.data.types);
+            setAbilities(res.data.abilities);
 
             if (res.data.sprites.other.dream_world.front_default === null){
                 setImgPokemon(res.data.sprites.front_default)
@@ -82,6 +89,18 @@ export default function Individual() {
             return <ListTypes
                 key={item.type.name}
                 name={item.type.name}
+            />
+        })
+    }
+
+    let abilitiesPokemons = null
+
+     if (abilities !== null) {
+        abilitiesPokemons = abilities.map(item => {
+            return <ListAbilities
+                key={item.ability.name}
+                name={item.ability.name}
+                url={item.ability.url}
             />
         })
     }
@@ -124,21 +143,28 @@ return (
 
                     <Linha>
                         <DivColunaUm>
-                            <TitleColunaUm>Abilites</TitleColunaUm>
-                            <ColunaUm>Dropdown</ColunaUm>
+                            <TitleColunaUm>Types</TitleColunaUm>
+                            <LinhaUm>{listaDeTipos}</LinhaUm>
                         </DivColunaUm>
                     </Linha>
 
                     <Linha>
                         <DivColunaUm>
-                            <TitleColunaUm>Types</TitleColunaUm>
-                            <LinhaUm>{listaDeTipos}</LinhaUm>
+                            <TitleColunaUm>Abilities</TitleColunaUm>
+                            <AbilityDiv>{abilitiesPokemons}</AbilityDiv>
                         </DivColunaUm>
                     </Linha>
 
                 </DivEspecificacoes>
 
             </PokemonAbility>
+
+            <PokemonEvolutions>
+                <DivEvolutions>
+                    <TitleEvolutions>Evolutions</TitleEvolutions>
+                    
+                </DivEvolutions>
+            </PokemonEvolutions>
     
         </Main>
 
