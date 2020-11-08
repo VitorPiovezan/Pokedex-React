@@ -24,7 +24,7 @@ const ListItems = (props) => {
 
     useEffect(() => {
         api
-          .get(props.name)
+          .get('pokemon/'+props.name)
           .then(({ data }) => {
             if(data.id <= 9){
                 setId('00'+data.id)
@@ -42,6 +42,7 @@ const ListItems = (props) => {
           .catch((err) => console.error(err));
     
       }, []);
+    
 
     let listaDeTipos = null
 

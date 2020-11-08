@@ -85,7 +85,8 @@ export const DivButtonSearch = styled.div`
     justify-content: space-between;
 `
 
-export const ButtonDropdown = styled.button`
+export const ButtonDropdown = styled.div`
+    /* 
     border-radius:4px;
     padding: 12px;
     background: #707070; 
@@ -93,7 +94,106 @@ export const ButtonDropdown = styled.button`
     width: 150px;
     color: #fff;
     font-weight: bold;
-    font-size: 10pt;
+    font-size: 10pt; 
+    */
+
+    .Dropdown-root {
+  position: relative;
+    }
+
+    .Dropdown-control {
+    padding: 13px;
+    width: 150px;
+    font-weight: bold;
+    font-size: 10pt; 
+    position: relative;
+    overflow: hidden;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #333;
+    cursor: default;
+    outline: none;
+    transition: all 200ms ease;
+    }
+
+    .Dropdown-control:hover {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+    }
+
+    .Dropdown-arrow {
+    border-color: #999 transparent transparent;
+    border-style: solid;
+    border-width: 5px 5px 0;
+    content: ' ';
+    display: block;
+    height: 0;
+    margin-top: -ceil(2.5);
+    position: absolute;
+    right: 10px;
+    top: 14px;
+    width: 0
+    }
+
+    .is-open .Dropdown-arrow {
+    border-color: transparent transparent #999;
+    border-width: 0 5px 5px;
+    }
+
+    .Dropdown-menu {
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+    box-sizing: border-box;
+    max-height: 500px;
+    overflow-y: auto;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    z-index: 1000;
+    -webkit-overflow-scrolling: touch;
+    }
+
+    .Dropdown-menu .Dropdown-group > .Dropdown-title{
+    padding: 8px 10px;
+    color: rgba(51, 51, 51, 1);
+    font-weight: bold;
+    text-transform: capitalize;
+    }
+
+    .Dropdown-option {
+    box-sizing: border-box;
+    color: rgba(51, 51, 51, 0.8);
+    cursor: pointer;
+    display: block;
+    padding: 8px 10px;
+    }
+
+    .Dropdown-option:last-child {
+    color: ${props => props.color};
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    }
+
+    .Dropdown-option:hover {
+    background-color: #f2f9fc;
+    color: #333;
+    }
+
+    .Dropdown-option.is-selected {
+    background-color: #f2f9fc;
+    color: #333;
+    }
+
+    .Dropdown-noresults {
+    box-sizing: border-box;
+    color: #ccc;
+    cursor: default;
+    display: block;
+    padding: 8px 10px;
+    }
+
 `
 export const Pokemons = styled.div`
     position: relative;

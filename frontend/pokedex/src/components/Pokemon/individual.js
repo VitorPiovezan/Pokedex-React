@@ -53,7 +53,7 @@ export default function Individual() {
 
 
     useEffect(() => {
-        api.get(id)
+        api.get('pokemon/'+id)
         .then(res =>{
             setImgPokemon(res.data.sprites.front_default);
             setWeight(res.data.weight / 10 + ' kg');

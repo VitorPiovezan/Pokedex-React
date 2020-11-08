@@ -4,6 +4,7 @@ import pokedex from '../../assets/images/pokedex.png';
 import pokebolaAberta from '../../assets/images/pokebola_2.png';
 import pokebolaFechada from '../../assets/images/pokebola_1.png';
 import ListItems from './pokemon';
+import Dropdown from 'react-dropdown'
 
 import { 
     Container, 
@@ -36,25 +37,81 @@ export default function Home() {
     const [pokemon, setPokemon] = useState([]);
     const [att, setAtt] = useState(0);
     const [pokebola, setPokebola] = useState(0);
+    const [colorPokemon, setColorPokemon] = useState('')
+    const [typeOptions, setTypeOptions] = useState([])
+    const [typePokemon, setTypePokemon] = useState('')
+    const [colorOptions, setColorOptions] = useState([])
+    const [locationPokemon, setLocationPokemon] = useState('')
+    const [locationOptions, setLocationOptions] = useState([])
+    const [locationOptionsBusca, setLocationOptionsBusca] = useState([])
 
-     useEffect(() => {
-         const way = '?offset='+att+'&limit=20';
-         api.get(way)
-         .then(res => {
-             setPokemon(res.data.results);
-         })
-     }, [att]);
+        useEffect(() => {
+
+            api.get('pokemon-color/')
+            .then(res => {
+                const array = res.data.results.map(item => ({value: item.name, label: item.name}))
+                setColorOptions(array)
+                
+            })
+
+            api.get('type/')
+            .then(res => {
+                const array = res.data.results.map(item => ({value: item.name, label: item.name}))
+                setTypeOptions(array)
+            })
+
+            api.get('location-area/?offset=0&limit=700')
+            .then(res => {
+                const array = res.data.results.map(item => ({value: item.name.replace('-', ' ').replace('-', ' ').replace('-', ' ').replace('-', ' ').replace('-', ' ').replace('-', ' ').replace('-', ' '), label: item.name.replace('-', ' ').replace('-', ' ').replace('-', ' ').replace('-', ' ').replace('-', ' ').replace('-', ' ').replace('-', ' ')}))
+                console.log(array)
+                const arrayBusca = res.data.results.map(item => ({value: item.name, label: item.name}))
+                setLocationOptions(array)
+                setLocationOptionsBusca(arrayBusca)
+            })
+
+
+
+
+            console.log(colorOptions)
+
+            if (colorPokemon !== "" && colorPokemon.value !== 'All_Colors'){
+                api.get('pokemon-color/'+colorPokemon.value)
+                .then(res => {
+                    setPokemon(res.data.pokemon_species)
+                })
+            } 
+            
+            else if (typePokemon !== "" && typePokemon.value !== 'All'){
+                api.get('type/'+typePokemon.value)
+                .then(res => {
+                    setPokemon(res.data.pokemon)
+                })
+            }
+
+            else {
+                allPokemons()
+            }
+
+        }, [att, colorPokemon, typePokemon]);
 
      let listaDeItens = null
 
      if (pokemon !== null) {
-        listaDeItens = pokemon.map(item => {
-            return <ListItems
-                key={item.name}
-                name={item.name}
-                url={item.url}
-            />
-        })
+            listaDeItens = pokemon.map(item => {
+                return <ListItems
+                    key={item.name}
+                    name={item.name}
+                    url={item.url}
+                />
+            })
+    }
+
+    function allPokemons(){
+        const way = '?offset='+att+'&limit=20';
+            api.get('pokemon'+way)
+            .then(res => {
+                setPokemon(res.data.results);
+            })
     }
 
     function Update(){
@@ -116,9 +173,9 @@ export default function Home() {
                 <SearchAdvanced>
                     <SearchTitle color="#707070">Advanced Search</SearchTitle>
                     <DivButtonSearch>
-                        <ButtonDropdown>All Species</ButtonDropdown>
-                        <ButtonDropdown>All Regions</ButtonDropdown>
-                        <ButtonDropdown>All Colors</ButtonDropdown>
+                        <ButtonDropdown><Dropdown options={colorOptions} onChange={setColorPokemon} value={colorPokemon} placeholder="All Colors" /></ButtonDropdown>
+                        <ButtonDropdown><Dropdown options={typeOptions} onChange={setTypePokemon} value={typePokemon} placeholder="All Types" /></ButtonDropdown>
+                        <ButtonDropdown><Dropdown options={locationOptions} onChange={setLocationPokemon} value={locationPokemon} placeholder="All Regions" /></ButtonDropdown>
                     </DivButtonSearch>
                 </SearchAdvanced>
             </Search>
@@ -131,10 +188,3 @@ export default function Home() {
 
     );
 }
-
-
-
-
-// <DivButtonSearch>
-// <ButtonDropdown type="button">Todos Tipos</ButtonDropdown>
-// </DivButtonSearch>
