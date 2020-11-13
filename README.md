@@ -1,4 +1,4 @@
-# Desafio_Pokedex
+# Desafio Pokedex
 
 O Desafio Pokedex é um projeto para criar experiencias mais próximas a ferramenta React.JS onde vamos trabalhar com manipulação de API e aplicação de ferramentas React como React Hooks e Redux.
 
