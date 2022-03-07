@@ -1,44 +1,70 @@
-# Desafio Pokedex
+# Getting Started with Create React App
 
-O Desafio Pokedex é um projeto para criar experiencias mais próximas a ferramenta React.JS onde vamos trabalhar com manipulação de API e aplicação de ferramentas React como React Hooks e Redux.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-**Para o desafio estar concluido a aplicação deve:**
+## Available Scripts
 
-1. Ter um filtro para buscar os Pokémons por nome, cor, espécie e localidade
-2. Listar os Pokémons que correspondam ao filtro
-3. Ao clicar em algum item, mostrar detalhes do Pokémon como:
-* Nome
-* Imagem
-* Peso
-* Tamanho
-* Lista de tipos
-* Lista de habilidades
-* Estatísticas de velocidade
-* Defesa
-* Ataque
-* Hp
-* Cada passo de sua evolução
-* Ao clicar em um item da lista de tipos, mostrar todos os pokémons daquele mesmo tipo, inclusive os que ainda não estão adicionados a Pokédex
-* Ao clicar em um item da lista de habilidades mostrar o short_effect da mesma
-* Ao clicar em uma evolução, exibir os detalhes do Pokémon
-* Se conseguir, hospedar a aplicação em algum servidor gratuito
+In the project directory, you can run:
 
-## **Quick start**
+### `yarn start`
 
-Clone esse [repositório](https://github.com/VitorPiovezan/Desafio_Pokedex.git) em seu computador.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-**Linux:** No caminho clonado utilize:
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-$ *apt-get update*
+### `yarn test`
 
-Ao finalizar o servidor deve ser iniciado dentro do caminho *frontend/pokedex/*
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-**Caso utilize yarn:** $ *yarn start*
+### `yarn build`
 
-**Caso utilize npm:** $ *npm start*
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## **Navegando pelo aplicativo**
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-Depois de executar os passos acima já podera desfrutar do aplicativo. Por enquanto ele não está online, mas logo estarei incluindo o link aqui!
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-**Link do desafio original:** https://github.com/guigald/test-mondo-front-end
+### `yarn eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `yarn build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
